@@ -1,0 +1,18 @@
+Boids: Flocking simulation.
+
+Boids have 3 crucial rules:
+
+Separation:
+  Steer to avoid crowding LOCAL flockmates
+
+Alignment:
+  Steer towards AVERAGE heading of LOCAL flockmates
+
+Cohesion
+  Steer to move toward position of LOCAL flockmates
+
+Flocking requires that boids only react to flockmates within a certain small neighborhood around them
+Neighborhood characterized by distance measured from center of boid and an angle measured frin boids
+direction of flight
+Flockmates outside neighborhood are ignored!
+

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Archivo+Black');
+    body {
+      height: 100vh;
+      background-repeat: no-repeat;
+      background-color: white;
+      color: white;
+      width: 100vw;
+    }
+    #gui {
+      position: relative;
+
+      z-index: 120;
+    }
+    .canvas {
+      position: relative;
+      height: 100vh;
+      background: radial-gradient(circle at 90%, rgb(24, 24, 24),rgb(24, 24, 24) 70%, rgb(197, 194, 194) 75%, rgb(24, 24, 24) 75%);
+      background-color:  rgb(24, 24, 24);
+    }
+
+    .mask {
+      -webkit-clip-path: inset(50px 50px);
+      clip-path: inset(50px 50px round 30px);
+      border-radius: 50px;
+      overflow: hidden;
+      position: relative;
+      z-index: -2;
+    }
+
+    .container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      overflow-y: hidden;
+      /* line-height: 0px; */
+    }
+
+    .type-contain {
+      width: 60%;
+    }
+    
+    .text {
+      font-family: 'Archivo Black', sans-serif;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 50px;
+      left: 50px;
+    }
+
+    .container-info {
+      display: flex;
+    }
+
+    .glitch {
+      font-family: 'Archivo Black', sans-serif;
+      display: flex;
+      font-size: 150px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: -1;
+    }
+    .breaking{    
+      width:500px;
+      word-wrap: break-word;
+    }
+    .toolbar-container {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+    }
+    .toolbar-front {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: hsl(177, 7%, 96%);
+      transform: translateY(-40px);
+      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+    }
+    .toolbar {
+      background: hsl(177, 10%, 72%);
+      position: absolute;
+      bottom: 0;
+      width: 95%;
+      transform: rotateX(5deg);
+      -webkit-transform: translateZ(0px);
+      border-radius: 12px;
+      height: 100px;
+      outline-offset: 4px;  
+    }
+    .button-container {
+      width: 90%;
+      display: flex;
+      justify-content: space-around;
+      height: 50%;
+    }
+    .button-container > button {
+      margin: 0px 5px;
+    }
+    .button-front {
+      display: flex;
+      flex-grow: 1;
+      justify-content: center;
+      font-size: 1.25rem;
+      padding: 12px;
+      background: hsl(164, 100%, 50%);
+      border-radius: 10px;
+      transform: translateY(-10px);
+      transition: .2s cubic-bezier(.32,.21,.17,1.15);
+    }
+    .button-back {
+      display: flex;
+      flex-grow: 1;
+      background: hsl(164, 100%, 35%);
+      border-radius: 10px;
+      transform: rotateX(25deg);
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      outline-offset: 4px;
+    }
+    .button-front:active {
+      transform: translateY(0px);
+    }
+    .bottom-left {
+      margin-left: 20px;
+    }
+    
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.7/dat.gui.min.js" integrity="sha512-LF8ZB1iTwi4Qvkm4pekHG4a437Y9Af5ZuwbnW4GTbAWQeR2E4KW8WF+xH8b9psevV7wIlDMx1MH9YfPqgKhA/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  </div>
+  <div class="container">
+    <div class="typewriter">
+     <h1 id="hero" class="glitch">Hello</h1>
+    </div>
+  </div>
+  <div class="bottom-left">
+    <div class="container-info">
+      <h4 class="text"> Number of boids: </h4>
+      <h4 class="text" id="life"></h4>
+    </div>
+    <div class="container-info">
+      <h4 class="text"> Number of deaths: </h4>
+      <h4 class="text" id="death"></h4>
+    </div>
+  </div>
+  <canvas id="canvas" class="mask canvas">
+    <script src="./javascript/gui.js"></script>
+  </canvas>
+  <script src="./javascript/particle.js"></script>
+  <script src="./javascript/text.js"></script>
+  <script src="./javascript/move.js"></script>
+</body>
+</html>
