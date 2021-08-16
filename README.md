@@ -2,7 +2,7 @@
 I really wanted to try out making some boids. Birds are fascinating, and the behavior of a bird flock is even more so! The ability for programmers to develop complex organisms with a few rules and control those rules is probably one of the coolest things about giving a computer instructions.
 
 Live demo here: https://maia-sason.github.io/boidswithjavascript/
-/
+
 ### Three cardinal rules:
 
 1. All particles must be drawn to neighbors in their neighborhood.
