@@ -40,7 +40,6 @@ const write = async () => {
         for (let j = start; j < string[i].length; j++) {
           await delay(40 + Math.random() * 15);
           typewriter.innerHTML += string[i].charAt(j);
-          console.log(typewriter)
           await resizeText(typewriter);
         }
         await delay(1000);

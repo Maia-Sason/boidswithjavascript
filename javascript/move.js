@@ -14,18 +14,11 @@ let particles = [];
 let radius = 5;
 let eating = false;
 
-canvas.addEventListener("mousemove", e => mouse(e));
+document.addEventListener("mousemove", e => mouse(e));
 
 let mouseObj = {
   x: width/2,
   y: height/2,
-}
-
-function mouse(e) {
-  if (particleData.mouse) {
-    mouseObj.x = e.clientX;
-    mouseObj.y = e.clientY;
-  }
 }
 
 
@@ -43,10 +36,18 @@ const particleData = {
   color: false,
 }
 
+function mouse(e) {
+  if (particleData.mouse) {
+    mouseObj.x = e.clientX;
+    mouseObj.y = e.clientY;
+    console.log(mouseObj)
+  }
+}
+
 gui.add(particleData, "windX", -10, 10);
 gui.add(particleData, "windY", -10, 10);
 gui.add(particleData, "speed", 0, 15).onChange(initChange);
-gui.add(particleData, "mouse", false, true);
+gui.add(particleData, "mouse", false, true)
 gui.add(particleData, "sight", 0, 200, 1);
 gui.add(particleData, "cohesion");
 gui.add(particleData, "alignment");
